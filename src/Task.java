@@ -14,7 +14,7 @@ public class Task {
         isCompleted = false;
     }
 
-    // Override constructor
+    // Overloaded constructor
     public Task(String name, String description, Date dueDate) {
         this.name = name;
         this.description = description;
@@ -58,7 +58,7 @@ public class Task {
 
     @Override
     public String toString() {
-        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("MM-dd-yyyy");
         String dueDateString = (dueDate != null) ? dateFormat.format(dueDate) : "N/A";
         String status = (isCompleted) ? "Completed" : "Not Completed";
         return "Description: " + description + "\nDue Date: " + dueDateString + "\nStatus: " + status;

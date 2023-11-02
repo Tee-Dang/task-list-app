@@ -1,9 +1,16 @@
 import java.util.ArrayList;
 
 public class TaskList {
-    private ArrayList<Task> tasks = new ArrayList<Task>();
+    private ArrayList<Task> tasks;
 
+    // Default constructor
+    public TaskList() {
+        tasks = new ArrayList<Task>();
+    }
+
+    // Overloaded constructor
     public TaskList(Task task) {
+        tasks = new ArrayList<Task>();
         tasks.add(task);
     }
 
@@ -12,7 +19,6 @@ public class TaskList {
             System.out.println("Error: Task description and due date are required.");
         } else {
             tasks.add(task);
-            System.out.println("Task added successfully!");
         }
     }
 
