@@ -8,7 +8,6 @@ public class TaskListApp {
 
     public static void main(String[] args) {
         TaskListApp app = new TaskListApp();
-
         app.start();
     }
 
@@ -61,15 +60,21 @@ public class TaskListApp {
 
         // Gather user input for task name
         System.out.println("Enter the task name: ");
-        String name = scanner.nextLine();
+        String name = "placeholder";
+
+        if (scanner.nextLine() == null) {
+            System.out.println("Task name is required.");
+        } else
+            name = scanner.nextLine();
 
         // Gather user input for the task description
-        System.out.print("Enter the task description (or 'exit' to quit): ");
-        String description = scanner.nextLine();
+        System.out.print("Enter the task description: ");
+        String description = "placeholder";
 
-        if (name.equalsIgnoreCase("exit") || description.equalsIgnoreCase("exit")) {
-            System.out.println("Exiting the application. Goodbye!"); // Cancel task creation
-        }
+        if (scanner.nextLine() == null) {
+            System.out.println("Description is required.");
+        } else
+            description = scanner.nextLine();
 
         // Gather user input for the due date
         System.out.print("Enter the due date (MM-dd-yyyy): ");
