@@ -20,7 +20,7 @@ public class TaskListApp {
             displayMenu();
 
             int choice;
-            choice = scanner.nextInt();
+            choice = Integer.parseInt(scanner.nextLine());
 
             switch (choice) {
                 case 1:
@@ -49,12 +49,12 @@ public class TaskListApp {
     }
 
     public void displayMenu() {
-        System.out.println("Task List Menu:");
-        System.out.println("1. Add a task");
-        System.out.println("2. Remove a task");
-        System.out.println("3. List tasks");
-        System.out.println("4. Mark a task as completed");
-        System.out.println("5. Exit");
+        System.out.println("Task List Menu:" +
+                "\n1. Add a task" +
+                "\n2. Remove a task" +
+                "\n3. List tasks" +
+                "\n4. Mark a task as completed" +
+                "\n5. Exit");
     }
 
 }

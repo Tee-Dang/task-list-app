@@ -61,7 +61,8 @@ public class Task {
         SimpleDateFormat dateFormat = new SimpleDateFormat("MM-dd-yyyy");
         String dueDateString = (dueDate != null) ? dateFormat.format(dueDate) : "N/A";
         String status = (isCompleted) ? "Completed" : "Not Completed";
-        return "Description: " + description + "\nDue Date: " + dueDateString + "\nStatus: " + status;
+        return "Name: " + name + "\nDescription: " + description + "\nDue Date: " + dueDateString + "\nStatus: "
+                + status;
     }
 
 }

@@ -39,8 +39,11 @@ public class TaskList {
         }
 
         scanner.close();
-        list.add(new Task(name, description, dueDate));
+        Task t = new Task(name, description, dueDate);
+        list.add(t);
         System.out.println("Task added successfully!");
+        System.out.println(t.toString());
+
     }
 
     // Removes tasks from the list based on what number (index) the task was
