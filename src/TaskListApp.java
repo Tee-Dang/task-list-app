@@ -1,7 +1,4 @@
 import java.util.Scanner;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 public class TaskListApp {
     private TaskList taskList;
@@ -16,24 +13,19 @@ public class TaskListApp {
     }
 
     public void start() {
+        boolean running = true;
         Scanner scanner = new Scanner(System.in);
 
-        while (true) {
+        while (running) {
             displayMenu();
 
             int choice;
-            if (scanner.hasNextInt()) {
-                choice = scanner.nextInt();
-            } else {
-                System.out.println("Invalid choice. Please select a valid option.");
-                scanner.nextLine(); // Consume the invalid input
-                continue;
-            }
+            choice = scanner.nextInt();
 
             switch (choice) {
                 case 1:
                     // Call the method to add a task.
-                    addTask();
+                    taskList.addTask();
                     break;
                 case 2:
                     // Call the method to remove a task.
@@ -47,53 +39,12 @@ public class TaskListApp {
                 case 5:
                     // Exit the application.
                     System.out.println("Exiting the application. Goodbye!");
-                    scanner.close();
-                    return;
+                    running = false;
                 default:
                     System.out.println("Invalid choice. Please select a valid option.");
             }
         }
-    }
 
-    public void addTask() {
-        Scanner scanner = new Scanner(System.in);
-
-        // Gather user input for task name
-        System.out.println("Enter the task name: ");
-        String name = "placeholder";
-
-        if (scanner.nextLine() == null) {
-            System.out.println("Task name is required.");
-        } else
-            name = scanner.nextLine();
-
-        // Gather user input for the task description
-        System.out.print("Enter the task description: ");
-        String description = "placeholder";
-
-        if (scanner.nextLine() == null) {
-            System.out.println("Description is required.");
-        } else
-            description = scanner.nextLine();
-
-        // Gather user input for the due date
-        System.out.print("Enter the due date (MM-dd-yyyy): ");
-        String dueDateStr = scanner.nextLine();
-
-        Date dueDate = null;
-        try {
-            SimpleDateFormat dateFormat = new SimpleDateFormat("MM-dd-yyyy");
-            dueDate = dateFormat.parse(dueDateStr);
-        } catch (ParseException e) {
-            System.out.println("Invalid date format. Task not added.");
-        }
-
-        // Create a Task object and add it to the task list
-        taskList.add(new Task(name, description, dueDate));
-
-        System.out.println("Task added successfully!");
-
-        // Close the scanner
         scanner.close();
     }
 

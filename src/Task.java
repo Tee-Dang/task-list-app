@@ -8,8 +8,8 @@ public class Task {
 
     // Default constructor
     public Task() {
-        name = "Task";
-        description = "Task";
+        name = "Task name";
+        description = "Task description";
         dueDate = new Date();
         isCompleted = false;
     }
